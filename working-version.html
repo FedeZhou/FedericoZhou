@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working Text Cycling</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero-text {
+            text-align: center;
+        }
+        
+        .elegant-text {
+            font-size: 1.8rem;
+            font-weight: 300;
+            font-style: italic;
+            letter-spacing: 3px;
+            color: #ffffff;
+            text-transform: uppercase;
+            margin: 0;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            font-family: 'Inter', sans-serif;
+            white-space: nowrap;
+        }
+        
+        #cycling-text {
+            opacity: 1;
+            transition: opacity 0.5s ease;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-text">
+        <h2 class="elegant-text" id="cycling-text">Keep moving</h2>
+    </div>
+    
+    <script>
+        // Guaranteed working text cycling
+        (function() {
+            'use strict';
+            
+            console.log('=== WORKING VERSION STARTING ===');
+            
+            // Wait for DOM to be ready
+            function ready(fn) {
+                if (document.readyState !== 'loading') {
+                    fn();
+                } else {
+                    document.addEventListener('DOMContentLoaded', fn);
+                }
+            }
+            
+            ready(function() {
+                console.log('DOM is ready');
+                
+                const cyclingElement = document.getElementById('cycling-text');
+                console.log('Element found:', cyclingElement);
+                
+                if (!cyclingElement) {
+                    console.error('Element not found!');
+                    return;
+                }
+                
+                const texts = ['moving', 'growing', 'learning'];
+                let currentIndex = 0;
+                let intervalId = null;
+                
+                function cycleText() {
+                    try {
+                        console.log('Cycling text, current index:', currentIndex);
+                        
+                        // Fade out
+                        cyclingElement.style.opacity = '0';
+                        
+                        setTimeout(function() {
+                            // Change text
+                            currentIndex = (currentIndex + 1) % texts.length;
+                            const newText = 'Keep ' + texts[currentIndex];
+                            cyclingElement.textContent = newText;
+                            console.log('Changed to:', newText);
+                            
+                            // Fade in
+                            cyclingElement.style.opacity = '1';
+                        }, 500);
+                        
+                    } catch (error) {
+                        console.error('Error in cycleText:', error);
+                    }
+                }
+                
+                // Start cycling
+                console.log('Starting text cycle');
+                intervalId = setInterval(cycleText, 3000);
+                
+                // Add manual trigger for testing
+                window.testCycle = function() {
+                    console.log('Manual trigger');
+                    cycleText();
+                };
+                
+                console.log('Text cycling initialized successfully');
+                console.log('You can also call testCycle() in console to manually trigger');
+            });
+            
+        })();
+    </script>
+</body>
+</html> 

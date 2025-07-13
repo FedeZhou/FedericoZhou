@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "live-server --port=3000 --open=/index.html --ignore=node_modules",
     "start": "live-server --port=3000 --open=/index.html --ignore=node_modules",
-    "build": "echo 'Static site - no build process needed'",
+    "build": "echo 'Static site - files already in public directory'",
     "preview": "live-server --port=3000 --open=/index.html --ignore=node_modules"
   },
   "keywords": [

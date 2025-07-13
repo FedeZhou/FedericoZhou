@@ -53,8 +53,77 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe elements for scroll animations
+// Robust text cycling animation for hero section
+function initTextCycling() {
+    console.log('=== INITIALIZING TEXT CYCLING ===');
+    
+    // Wait for DOM to be ready
+    function ready(fn) {
+        if (document.readyState !== 'loading') {
+            fn();
+        } else {
+            document.addEventListener('DOMContentLoaded', fn);
+        }
+    }
+    
+    ready(function() {
+        console.log('DOM is ready for text cycling');
+        
+        const cyclingElement = document.getElementById('cycling-text');
+        console.log('Cycling element found:', cyclingElement);
+        
+        if (!cyclingElement) {
+            console.error('Cycling element not found!');
+            return;
+        }
+        
+        const texts = ['moving', 'growing', 'learning'];
+        let currentIndex = 0;
+        let intervalId = null;
+        
+        function cycleText() {
+            try {
+                console.log('Cycling text, current index:', currentIndex);
+                
+                // Fade out
+                cyclingElement.style.opacity = '0';
+                
+                setTimeout(function() {
+                    // Change text
+                    currentIndex = (currentIndex + 1) % texts.length;
+                    const newText = 'Keep ' + texts[currentIndex];
+                    cyclingElement.textContent = newText;
+                    console.log('Changed to:', newText);
+                    
+                    // Fade in
+                    cyclingElement.style.opacity = '1';
+                }, 500);
+                
+            } catch (error) {
+                console.error('Error in cycleText:', error);
+            }
+        }
+        
+        // Start cycling
+        console.log('Starting text cycle');
+        intervalId = setInterval(cycleText, 3000);
+        
+        // Add manual trigger for testing
+        window.testCycle = function() {
+            console.log('Manual trigger');
+            cycleText();
+        };
+        
+        console.log('Text cycling initialized successfully');
+        console.log('You can also call testCycle() in console to manually trigger');
+    });
+}
+
+// Initialize text cycling when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded, initializing text cycling');
+    initTextCycling();
+    
     const animateElements = document.querySelectorAll('.section-header, .about-content, .service-card, .contact-content');
     
     animateElements.forEach(el => {
@@ -207,15 +276,6 @@ function typeWriter(element, text, speed = 100) {
     type();
 }
 
-// Initialize typing effect on page load (uncomment to enable)
-// document.addEventListener('DOMContentLoaded', () => {
-//     const heroTitle = document.querySelector('.hero-title');
-//     if (heroTitle) {
-//         const originalText = heroTitle.textContent;
-//         typeWriter(heroTitle, originalText, 150);
-//     }
-// });
-
 // Add loading animation
 window.addEventListener('load', () => {
     document.body.style.opacity = '0';
@@ -292,4 +352,4 @@ notificationStyles.textContent = `
         opacity: 0.7;
     }
 `;
-document.head.appendChild(notificationStyles); 
+document.head.appendChild(notificationStyles);

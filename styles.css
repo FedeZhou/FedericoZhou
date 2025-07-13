@@ -129,6 +129,15 @@ body {
     white-space: nowrap;
 }
 
+/* Specific styles for cycling text */
+#cycling-text {
+    opacity: 1 !important;
+    animation: none !important;
+    transition: opacity 0.5s ease !important;
+    display: inline-block !important;
+    will-change: opacity !important;
+}
+
 @keyframes fadeInUp {
     to {
         opacity: 1;

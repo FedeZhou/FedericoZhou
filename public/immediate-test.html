@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immediate Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        #cycling-text {
+            font-size: 2rem;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="cycling-text">Keep moving</h1>
+    
+    <script>
+        // Immediate execution - no waiting
+        console.log('=== IMMEDIATE TEST STARTING ===');
+        
+        const cyclingElement = document.getElementById('cycling-text');
+        console.log('Element found:', cyclingElement);
+        
+        if (cyclingElement) {
+            const texts = ['moving', 'growing', 'learning'];
+            let currentIndex = 0;
+            
+            function cycleText() {
+                console.log('Cycling text, current index:', currentIndex);
+                
+                // Fade out
+                cyclingElement.style.opacity = '0';
+                
+                setTimeout(function() {
+                    // Change text
+                    currentIndex = (currentIndex + 1) % texts.length;
+                    const newText = 'Keep ' + texts[currentIndex];
+                    cyclingElement.textContent = newText;
+                    console.log('Changed to:', newText);
+                    
+                    // Fade in
+                    cyclingElement.style.opacity = '1';
+                }, 500);
+            }
+            
+            // Start cycling immediately
+            console.log('Starting text cycle immediately');
+            setInterval(cycleText, 2000); // Every 2 seconds
+            
+            // Also trigger first cycle after 1 second
+            setTimeout(cycleText, 1000);
+            
+        } else {
+            console.log('Element not found!');
+        }
+    </script>
+</body>
+</html> 
