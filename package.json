@@ -4,10 +4,10 @@
   "description": "A beautiful, elegant, and minimal landing page with dark mode design",
   "main": "index.html",
   "scripts": {
-    "dev": "live-server --port=3000 --open=/index.html --ignore=node_modules",
-    "start": "live-server --port=3000 --open=/index.html --ignore=node_modules",
+    "dev": "live-server public --port=3000 --open=/index.html --ignore=node_modules",
+    "start": "live-server public --port=3000 --open=/index.html --ignore=node_modules",
     "build": "echo 'Static site - files already in public directory'",
-    "preview": "live-server --port=3000 --open=/index.html --ignore=node_modules"
+    "preview": "live-server public --port=3000 --open=/index.html --ignore=node_modules"
   },
   "keywords": [
     "landing-page",

@@ -116,7 +116,7 @@ body::before {
     position: fixed;
     top: 0;
     left: 50%;
-    transform: translate(-50%, 0) scale(0.6);
+    transform: translate(-50%, 0) scale(0.75);
     width: 100%;
     height: 100vh;
     object-fit: contain;
@@ -254,10 +254,15 @@ body::before {
     
     .background-video {
         top: -15%;
+        transform: translate(-50%, 0) scale(1) !important;
     }
     
     .hero-text {
         top: 45%;
+    }
+
+    .elegant-text {
+        font-size: 1rem !important;
     }
 }
 
