@@ -114,9 +114,9 @@ body::before {
 
 .background-video {
     position: fixed;
-    top: 0;
+    top: -10%;
     left: 50%;
-    transform: translate(-50%, 0) scale(0.75);
+    transform: translate(-50%, 0) scale(0.7) !important;
     width: 100%;
     height: 100vh;
     object-fit: contain;
@@ -127,7 +127,7 @@ body::before {
 
 .hero-text {
     position: absolute;
-    top: 60%;
+    top: 48%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
@@ -135,9 +135,8 @@ body::before {
 }
 
 .elegant-text {
-    font-size: 1.8rem;
-    font-weight: 300;
-    font-style: italic;
+    font-size: 1rem !important;
+    font-style: normal;
     letter-spacing: 3px;
     color: #ffffff;
     text-transform: uppercase;
@@ -253,16 +252,17 @@ body::before {
     }
     
     .background-video {
-        top: -15%;
-        transform: translate(-50%, 0) scale(1) !important;
+        top: -10%;
+        transform: translate(-50%, 0) scale(0.7) !important;
     }
     
     .hero-text {
-        top: 45%;
+        top: 48%;
     }
 
     .elegant-text {
         font-size: 1rem !important;
+        font-style: normal;
     }
 }
 
