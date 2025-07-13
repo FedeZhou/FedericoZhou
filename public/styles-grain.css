@@ -79,6 +79,7 @@ body::before {
     font-weight: 400;
     transition: all 0.3s ease;
     position: relative;
+    font-size: 0.6rem;
 }
 
 .nav-link:hover {
@@ -127,7 +128,7 @@ body::before {
 
 .hero-text {
     position: absolute;
-    top: 48%;
+    top: 47%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
@@ -267,7 +268,10 @@ body::before {
 }
 
 @media (min-width: 769px) {
+    .background-video {
+        transform: translate(-50%, 0) scale(0.3) !important;
+    }
     .hero-text {
-        top: 75%;
+        top: 45%;
     }
 } 
