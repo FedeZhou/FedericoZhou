@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "dev": "vite",
-    "start": "live-server content --port=3000 --open=/index.html --ignore=node_modules",
+    "start": "live-server public --port=3000 --open=/index.html --ignore=node_modules",
     "build": "vite build",
     "preview": "vite preview"
   },
