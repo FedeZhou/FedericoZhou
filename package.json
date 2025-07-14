@@ -4,10 +4,10 @@
   "description": "A beautiful, elegant, and minimal landing page with dark mode design",
   "main": "index.html",
   "scripts": {
-    "dev": "live-server public --port=3000 --open=/index.html --ignore=node_modules",
+    "dev": "vite",
     "start": "live-server public --port=3000 --open=/index.html --ignore=node_modules",
-    "build": "echo 'Static site - files already in public directory'",
-    "preview": "live-server public --port=3000 --open=/index.html --ignore=node_modules"
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "keywords": [
     "landing-page",
@@ -22,10 +22,19 @@
   "author": "Your Name",
   "license": "MIT",
   "devDependencies": {
-    "live-server": "^1.2.2"
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.6.0",
+    "live-server": "^1.2.2",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.4"
   },
   "engines": {
     "node": ">=14.0.0",
     "npm": ">=6.0.0"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   }
-} 
+}
