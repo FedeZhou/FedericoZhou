@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: [YOUR-WEBSITE-URL]/sitemap.xml
+Sitemap: https://federicozhou.nl/sitemap.xml
 
 # Disallow any private or admin areas (if you add them later)
 # Disallow: /admin/
